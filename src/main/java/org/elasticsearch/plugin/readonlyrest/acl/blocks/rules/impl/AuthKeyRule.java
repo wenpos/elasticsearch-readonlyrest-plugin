@@ -1,7 +1,7 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.impl;
 
-import com.google.common.base.Charsets;
 import org.elasticsearch.common.Base64;
+import org.elasticsearch.common.base.Charsets;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.plugin.readonlyrest.acl.RequestContext;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.Rule;

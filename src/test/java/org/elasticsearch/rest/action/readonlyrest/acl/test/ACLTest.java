@@ -1,9 +1,10 @@
 package org.elasticsearch.rest.action.readonlyrest.acl.test;
 
-import com.google.common.base.Charsets;
 import org.elasticsearch.action.ActionRequest;
 import org.elasticsearch.action.ActionRequestValidationException;
 import org.elasticsearch.common.Base64;
+import org.elasticsearch.common.base.Charsets;
+import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.http.netty.NettyHttpChannel;
 import org.elasticsearch.http.netty.NettyHttpRequest;
@@ -34,7 +35,7 @@ public class ACLTest {
     try {
       byte[] encoded = Files.readAllBytes(Paths.get(System.getProperty("user.dir") + "/src/test/test_rules.yml"));
       String str = Charsets.UTF_8.decode(ByteBuffer.wrap(encoded)).toString();
-      Settings s = Settings.builder().loadFromSource(str).build();
+      Settings s = ImmutableSettings.builder().loadFromSource(str).build();
       acl = new ACL(s);
     } catch (IOException e) {
       e.printStackTrace();

@@ -1,10 +1,11 @@
 package org.elasticsearch.plugin.readonlyrest;
 
 import org.elasticsearch.action.ActionModule;
+import org.elasticsearch.plugins.AbstractPlugin;
 import org.elasticsearch.plugins.Plugin;
 import org.elasticsearch.rest.RestModule;
 
-public class ReadonlyRestPlugin extends Plugin {
+public class ReadonlyRestPlugin extends AbstractPlugin {
 
   @Override
   public String name() {

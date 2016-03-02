@@ -1,7 +1,7 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.impl;
 
-import com.google.common.collect.Lists;
 import org.elasticsearch.action.ActionRequest;
+import org.elasticsearch.common.collect.Lists;
 import org.elasticsearch.common.logging.ESLogger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.common.settings.Settings;

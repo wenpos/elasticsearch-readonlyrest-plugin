@@ -1,7 +1,7 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.impl;
 
-import com.google.common.collect.Lists;
-import com.google.common.net.InternetDomainName;
+
+import org.elasticsearch.common.collect.Lists;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.plugin.readonlyrest.ConfigurationHelper;
 import org.elasticsearch.plugin.readonlyrest.SecurityPermissionException;
@@ -11,6 +11,7 @@ import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.IPMask;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.Rule;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.RuleExitResult;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.RuleNotConfiguredException;
+import org.elasticsearch.plugin.readonlyrest.util.InternetDomainName;
 import org.elasticsearch.rest.RestRequest;
 
 import java.net.InetSocketAddress;

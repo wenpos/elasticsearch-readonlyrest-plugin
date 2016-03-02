@@ -1,6 +1,6 @@
 package org.elasticsearch.plugin.readonlyrest.acl.blocks;
 
-import com.google.common.collect.Sets;
+import org.elasticsearch.common.collect.Sets;
 import org.elasticsearch.common.logging.ESLogger;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.plugin.readonlyrest.acl.RequestContext;
