@@ -23,8 +23,7 @@ VOLUME ["/data"]
 # Mount elasticsearch.yml config
 COPY elasticsearch.yml /elasticsearch/config/
 COPY elasticsearch-readonlyrest-${VERSION}.zip /tmp/
-RUN /elasticsearch/bin/plugin install file:/tmp/elasticsearch-readonlyrest-${VERSION}.zip
-#RUN /elasticsearch/bin/plugin install mobz/elasticsearch-head
+RUN /elasticsearch/bin/plugin -url file:/tmp/elasticsearch-readonlyrest-${VERSION}.zip -install readonlyrest
 
 # Change log level INFO->TRACE
 
