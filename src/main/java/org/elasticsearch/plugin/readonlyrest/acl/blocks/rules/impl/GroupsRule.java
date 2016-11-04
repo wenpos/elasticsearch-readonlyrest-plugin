@@ -12,7 +12,7 @@ import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.User;
 import org.elasticsearch.plugin.readonlyrest.acl.blocks.rules.UserNotConfiguredException;
 
 /**
- * A GroupsRule checks if a request containing Basic Authentication credentials 
+ * A GroupsRule checks if a request containing Basic ReadOnlySettingParser credentials
  * matches a user in one of the specified groups.
  * 
  * @author Christian Henke <maitai@users.noreply.github.com>

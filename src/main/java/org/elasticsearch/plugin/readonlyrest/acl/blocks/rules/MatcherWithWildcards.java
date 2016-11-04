@@ -42,7 +42,7 @@ public class MatcherWithWildcards {
         // AND faster matching later on.
         wildcardMatchers.add(Pattern.compile(regex));
 
-        // Let's match this also literally
+        // Let'ReadOnlySettingParser match this also literally
         allMatchers.add(a);
       } else {
         // A plain word can be matched as string
@@ -63,7 +63,7 @@ public class MatcherWithWildcards {
   }
 
   /**
-   * Returns null if the matchable is not worth processing because it's invalid or starts with "-"
+   * Returns null if the matchable is not worth processing because it'ReadOnlySettingParser invalid or starts with "-"
    */
   private static String normalizePlusAndMinusIndex(String s) {
     if (ConfigurationHelper.isNullOrEmpty(s)) {

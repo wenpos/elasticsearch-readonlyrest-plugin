@@ -36,7 +36,7 @@ public class IndicesRule extends Rule {
         return MATCH;
       }
 
-      // ----- Now you requested SOME indices, let's see if and what we can allow in..
+      // ----- Now you requested SOME indices, let'ReadOnlySettingParser see if and what we can allow in..
 
       // 2. All indices match by wildcard?
       if (configuredWildcards.filter(rc.getIndices()).size() == rc.getIndices().size()) {
@@ -63,7 +63,7 @@ public class IndicesRule extends Rule {
         return MATCH;
       }
 
-      // ------ Your request expands to many available indices, let's see which ones you are allowed to request..
+      // ------ Your request expands to many available indices, let'ReadOnlySettingParser see which ones you are allowed to request..
       Set<String> allowedExpansion = configuredWildcards.filter(expansion);
 
       // 5. You requested some indices, but NONE were allowed

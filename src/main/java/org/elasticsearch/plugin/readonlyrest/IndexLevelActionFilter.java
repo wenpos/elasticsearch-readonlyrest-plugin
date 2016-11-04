@@ -7,6 +7,7 @@ import org.elasticsearch.action.support.ActionFilter;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.Singleton;
 import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.indices.IndicesService;
 import org.elasticsearch.plugin.readonlyrest.acl.ACL;
 import org.elasticsearch.plugin.readonlyrest.acl.RequestContext;
@@ -16,6 +17,10 @@ import org.elasticsearch.rest.BytesRestResponse;
 import org.elasticsearch.rest.RestChannel;
 import org.elasticsearch.rest.RestRequest;
 import org.elasticsearch.rest.RestStatus;
+
+import java.io.IOException;
+
+import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
 /**
  * Created by sscarduzio on 19/12/2015.
@@ -91,16 +96,22 @@ public class IndexLevelActionFilter extends ActionFilter.Simple {
 
     BytesRestResponse resp;
 
-    if (acl.isBasicAuthConfigured()) {
-      resp = new BytesRestResponse(RestStatus.UNAUTHORIZED, reason);
-      logger.debug("Sending login prompt header...");
-      resp.addHeader("WWW-Authenticate", "Basic");
-    } else {
-      resp = new BytesRestResponse(RestStatus.FORBIDDEN, reason);
+    try {
+      XContentBuilder reasonJson = jsonBuilder()
+              .startObject()
+              .field("error_message", reason)
+              .endObject();
+      if (acl.isBasicAuthConfigured()) {
+        resp = new BytesRestResponse(RestStatus.UNAUTHORIZED, reasonJson);
+        logger.debug("Sending login prompt header...");
+        resp.addHeader("WWW-Authenticate", "Basic");
+      } else {
+        resp = new BytesRestResponse(RestStatus.FORBIDDEN, reasonJson);
+      }
+      channel.sendResponse(resp);
+    } catch (IOException e) {
+      logger.error("Construct forbidden reason failed", e);
     }
-
-    channel.sendResponse(resp);
-
     return false;
   }
 
