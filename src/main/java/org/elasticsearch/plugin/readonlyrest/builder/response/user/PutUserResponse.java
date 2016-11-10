@@ -21,7 +21,11 @@ public class PutUserResponse extends ActionResponse implements ToXContent {
 
     @Override
     public XContentBuilder toXContent(XContentBuilder builder, Params params) throws IOException {
-        builder.startObject().field("created", this.created).endObject();
+        if (this.created == true){
+            builder.startObject().field("created", true).endObject();
+        }else {
+            builder.startObject().field("update", true).endObject();
+        }
         return builder;
     }
 }

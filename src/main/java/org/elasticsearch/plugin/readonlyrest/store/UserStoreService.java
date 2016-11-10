@@ -32,6 +32,7 @@ import org.elasticsearch.index.engine.DocumentMissingException;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.plugin.readonlyrest.builder.request.user.PutUserRequest;
 import org.elasticsearch.plugin.readonlyrest.client.ClientWithUser;
+import org.elasticsearch.plugin.readonlyrest.util.JsonUtil;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.threadpool.ThreadPool;
 import org.elasticsearch.transport.RemoteTransportException;
@@ -79,12 +80,18 @@ public class UserStoreService extends AbstractComponent implements ClusterStateL
     private void indexUser(final PutUserRequest request, final ActionListener<Boolean> listener) {
         assert (request.getPassword() != null);
         IndexRequestBuilder userIndexBuilder = this.client.prepareIndex(".security", "user", request.getUsername())
-                .setSource(new Object[]{"zte", "zte123", "all"})
+                .setSource(new Object[]{"username",request.getUsername(), "roles",request.getRoles(), "password",request.getPassword()})
                 .setRefresh(request.isRefresh());
         userIndexBuilder.execute(new ActionListener<IndexResponse>() {
                     public void onResponse(IndexResponse indexResponse) {
                         if (indexResponse.isCreated()) {
+                            System.out.println("****是否创***: yes" + indexResponse.isCreated() );
                             listener.onResponse(Boolean.valueOf(indexResponse.isCreated()));
+                            return;
+                        }
+                        else {
+                            System.out.println("****是否创***: no");
+                            listener.onResponse(Boolean.valueOf(false));
                             return;
                         }
                         // TODO: 2016/11/5 清理缓存的用户信息
@@ -156,6 +163,7 @@ public class UserStoreService extends AbstractComponent implements ClusterStateL
             if (this.state.compareAndSet(State.INITIALIZED, State.STARTING)) {
                 // TODO: 2016/11/4 用户操作权限的校验，该用户只能操作自己的用户信息
                 this.client = new ClientWithUser((Client) this.clientProvider.get());
+                this.logger.info("####初始化CLIENT####");
                 // TODO: 2016/11/4 这两个参数的作用？--用于scroll查询，参见方法collectUsersAndVersions
                 //两个配置参数，配置则取配置的值，否则取默认值
                 this.scrollSize = this.settings.getAsInt("shield.authc.native.scroll.size", Integer.valueOf(1000)).intValue();
