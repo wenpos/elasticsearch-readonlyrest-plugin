@@ -1,4 +1,4 @@
-package org.elasticsearch.plugin.readonlyrest.action.user;
+package org.elasticsearch.plugin.readonlyrest.action;
 
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.support.ActionFilters;
@@ -6,8 +6,8 @@ import org.elasticsearch.action.support.HandledTransportAction;
 import org.elasticsearch.cluster.metadata.IndexNameExpressionResolver;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.plugin.readonlyrest.builder.request.user.PutUserRequest;
-import org.elasticsearch.plugin.readonlyrest.builder.response.user.PutUserResponse;
+import org.elasticsearch.plugin.readonlyrest.builder.request.PutUserRequest;
+import org.elasticsearch.plugin.readonlyrest.builder.response.PutUserResponse;
 import org.elasticsearch.plugin.readonlyrest.store.UserStoreService;
 import org.elasticsearch.threadpool.ThreadPool;
 import org.elasticsearch.transport.TransportService;

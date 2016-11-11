@@ -1,6 +1,5 @@
 package org.elasticsearch.plugin.readonlyrest.builder;
 
-import org.elasticsearch.ElasticsearchParseException;
 import org.elasticsearch.action.ActionRequestBuilder;
 import org.elasticsearch.client.ElasticsearchClient;
 import org.elasticsearch.common.Nullable;
@@ -10,8 +9,8 @@ import org.elasticsearch.common.bytes.BytesReference;
 import org.elasticsearch.common.xcontent.XContentHelper;
 import org.elasticsearch.common.xcontent.XContentParser;
 import org.elasticsearch.plugin.readonlyrest.builder.action.PutUserAction;
-import org.elasticsearch.plugin.readonlyrest.builder.response.user.PutUserResponse;
-import org.elasticsearch.plugin.readonlyrest.builder.request.user.PutUserRequest;
+import org.elasticsearch.plugin.readonlyrest.builder.request.PutUserRequest;
+import org.elasticsearch.plugin.readonlyrest.builder.response.PutUserResponse;
 import org.elasticsearch.plugin.readonlyrest.user.GateUser;
 import org.elasticsearch.plugin.readonlyrest.util.XContentUtils;
 import org.elasticsearch.rest.RestRequest;

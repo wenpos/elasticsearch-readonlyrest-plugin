@@ -1,4 +1,4 @@
-package org.elasticsearch.plugin.readonlyrest.builder.request.user;
+package org.elasticsearch.plugin.readonlyrest.builder.request;
 
 import org.elasticsearch.action.ActionRequest;
 import org.elasticsearch.action.ActionRequestValidationException;

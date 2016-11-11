@@ -1,4 +1,4 @@
-package org.elasticsearch.plugin.readonlyrest.builder.response.user;
+package org.elasticsearch.plugin.readonlyrest.builder.response;
 
 import org.elasticsearch.action.ActionResponse;
 import org.elasticsearch.common.xcontent.ToXContent;

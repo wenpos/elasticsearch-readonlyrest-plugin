@@ -3,10 +3,10 @@ package org.elasticsearch.plugin.readonlyrest;
 import org.elasticsearch.action.ActionModule;
 import org.elasticsearch.common.inject.Module;
 import org.elasticsearch.http.HttpServerModule;
-import org.elasticsearch.plugin.readonlyrest.action.user.TransportPutUserAction;
+import org.elasticsearch.plugin.readonlyrest.action.TransportPutUserAction;
 import org.elasticsearch.plugin.readonlyrest.builder.action.PutUserAction;
 import org.elasticsearch.plugin.readonlyrest.module.GateModule;
-import org.elasticsearch.plugin.readonlyrest.rest.user.RestPutUserAction;
+import org.elasticsearch.plugin.readonlyrest.rest.RestPutUserAction;
 import org.elasticsearch.plugins.Plugin;
 import org.elasticsearch.rest.RestModule;
 

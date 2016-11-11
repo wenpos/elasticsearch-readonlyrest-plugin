@@ -3,8 +3,8 @@ package org.elasticsearch.plugin.readonlyrest.builder.action;
 import org.elasticsearch.action.Action;
 import org.elasticsearch.client.ElasticsearchClient;
 import org.elasticsearch.plugin.readonlyrest.builder.PutUserRequestBuilder;
-import org.elasticsearch.plugin.readonlyrest.builder.request.user.PutUserRequest;
-import org.elasticsearch.plugin.readonlyrest.builder.response.user.PutUserResponse;
+import org.elasticsearch.plugin.readonlyrest.builder.request.PutUserRequest;
+import org.elasticsearch.plugin.readonlyrest.builder.response.PutUserResponse;
 
 public class PutUserAction extends Action<PutUserRequest, PutUserResponse, PutUserRequestBuilder> {
     public static final PutUserAction INSTANCE = new PutUserAction();
